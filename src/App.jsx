@@ -1,12 +1,11 @@
 import React from 'react'
 import StudentInfo from "./components/StudentInfo";
-import StudentInfoHandler from "./components/StudentInfoHandler";
+import './App.css'
 
 const App = () => {
     return (
         <>
             <StudentInfo/>
-            <StudentInfoHandler/>
         </>
     )
 }

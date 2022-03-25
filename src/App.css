@@ -1,0 +1,12 @@
+table {
+    font-size: 20px;
+    font-family: 'Roboto', sans serif;
+    margin: 30px auto;
+    width: 70%;
+    background: rgba(111, 197, 108, 0.17);
+}
+
+td {
+    border: 3px solid rgba(70, 199, 66, 0.85);
+    padding: 5px;
+}

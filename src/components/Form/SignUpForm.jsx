@@ -25,14 +25,8 @@ const SignUpForm = ({getInfo}) => {
     })
 
     const allMonths = months.map((month, index) => {
-        return <option key={index}>{month}</option>
+        return <option id={(index + 1).toString()} key={index}>{month}</option>
     })
-
-    const handleSendButton = () => {
-        if (email === 'correct' || email === '')
-            getInfo(studentInfo)
-        else alert('Input correct email!')
-    }
 
     const handler = (e) => {
         switch (e.target.id) {
@@ -49,7 +43,7 @@ const SignUpForm = ({getInfo}) => {
                 setStudentInfo({...studentInfo, day: e.target.value})
                 break
             case 'month':
-                setStudentInfo({...studentInfo, month: e.target.value})
+                setStudentInfo({...studentInfo, month: months.indexOf(e.target.value)})
                 break
             case 'year':
                 setStudentInfo({...studentInfo, year: e.target.value})
@@ -81,11 +75,21 @@ const SignUpForm = ({getInfo}) => {
         setEmail(value)
     }
 
+    const onSubmitForm = (e) => {
+        e.preventDefault()
+
+        if (email === 'correct' || email === '') {
+            getInfo(studentInfo)
+            e.target.reset()
+        }
+        else alert('Input correct email!')
+    }
+
     // +++TODO: сохранять дату рождения в state
-    // TODO: очистка формы: заполнить пустыми значениями
+    // +++TODO: очистка формы: заполнить пустыми значениями
     // +++TODO: если email некорректный, то кнопка неактивна
     return (
-        <form>
+        <form onSubmit={onSubmitForm}>
             <h2>Registration form</h2>
             <input className={'input'} id={'nm'} placeholder={'name'} onChange={handler}/><br/>
             <input className={'input'} id={'srn'} placeholder={'surname'} onChange={handler}/><br/>
@@ -99,7 +103,7 @@ const SignUpForm = ({getInfo}) => {
             <input className={'input'} id={'sp'} placeholder={'spec'} onChange={handler}/><br/>
             <SignUpEmailInput handler={handler} email={checkEmail}/>
             <PhoneInput handler={handler}/>
-            <input type={'button'} className={'send'} value="send" onClick={handleSendButton}/>
+            <input type={'submit'} className={'send'} value="send"/>
         </form>
     )
 }
