@@ -30,13 +30,13 @@ const StudentInfoHandler = ({info}) => {
 
     let phoneOperator = ''
     if (phoneNumber) {
-        if (phoneNumber.match(/\+375 \(29\) [1369]/) || phoneNumber.match(/\+375 \(44\)/))
+        if (phoneNumber.match(/^\+375 \(29\) [1369]/) || phoneNumber.match(/^\+375 \(44\)/) || phoneNumber.match(/^8 029 [1369]/) || phoneNumber.match(/^8 044/))
             phoneOperator = 'A1 (Velcom)'
-        if (phoneNumber.match(/\+375 \(29\) [2578]/) || phoneNumber.match(/\+375 \(33\)/))
+        if (phoneNumber.match(/^\+375 \(29\) [2578]/) || phoneNumber.match(/^\+375 \(33\)/) || phoneNumber.match(/^8 029 [2578]/) || phoneNumber.match(/^8 033/))
             phoneOperator = 'MTC'
-        if (phoneNumber.match(/\+375 \(25\)/))
+        if (phoneNumber.match(/^\+375 \(25\)/) || phoneNumber.match(/^8 025/))
             phoneOperator = 'Life:)'
-        if (phoneNumber.match(/\+375 \(17\)/))
+        if (phoneNumber.match(/^\+375 \(17\)/) || phoneNumber.match(/^8 017/))
             phoneOperator = 'Beltelecom'
     }
 

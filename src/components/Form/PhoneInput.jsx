@@ -19,7 +19,7 @@ const onPhoneInput = (e) => {
     let input = e.target // e.target -> object на котором сработала функция, т.е. <input type="tel">
     let inputNumbersValue = getInputNumbersValue(input) // только числовые символы
     let country = getInputCountry(input)
-    console.log(inputNumbersValue)
+    // console.log(inputNumbersValue)
 
     input.value = input.value.replace(/[^\d\-+() ]/, '')
 

@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import SignUpForm from "./Form/SignUpForm";
 import StudentInfoHandler from "./StudentInfoHandler";
 
-
 const StudentInfo = () => {
     const [studentInfo, setStudentInfo] = useState({
         name: '',
