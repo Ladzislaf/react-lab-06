@@ -30,9 +30,11 @@ td {
 }
 
 .notes_container {
-    border: 5px solid red;
+    border: 3px solid #79e879;
+    border-radius: 5px;
     padding: 20px;
-    margin: 0 0 50px 0;
+    margin: 0 100px 100px 100px;
+    background: rgba(111, 197, 108, 0.17);
 }
 
 .noteForm {

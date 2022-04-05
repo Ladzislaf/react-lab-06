@@ -1,6 +1,6 @@
 import React from 'react'
 import StudentInfo from "./components/StudentInfo";
-import Notes from "./components/Notes";
+import Notes from "./components/Notes/Notes";
 
 import './App.css'
 
