@@ -4,7 +4,7 @@ import SignUpEmailInput from './SignUpEmailInput'
 import './style/SignUpForm.css'
 
 const SignUpForm = ({getInfo}) => {
-    const [studentInfo, setStudentInfo] = useState({})
+    const [studentInfo, setStudentInfo] = useState({day: 1, month: 1, year: 2022})
     const [email, setEmail] = useState('')
 
     const days = [], years = []
@@ -43,7 +43,7 @@ const SignUpForm = ({getInfo}) => {
                 setStudentInfo({...studentInfo, day: e.target.value})
                 break
             case 'month':
-                setStudentInfo({...studentInfo, month: months.indexOf(e.target.value)})
+                setStudentInfo({...studentInfo, month: months.indexOf(e.target.value) + 1})
                 break
             case 'year':
                 setStudentInfo({...studentInfo, year: e.target.value})
@@ -81,6 +81,7 @@ const SignUpForm = ({getInfo}) => {
         if (email === 'correct' || email === '') {
             getInfo(studentInfo)
             e.target.reset()
+            setStudentInfo({...studentInfo, day: 1, month: 1, year: 2022})
         }
         else alert('Input correct email!')
     }

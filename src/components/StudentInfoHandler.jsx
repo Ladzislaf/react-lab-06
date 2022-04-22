@@ -1,6 +1,7 @@
 import React from 'react'
 
 const StudentInfoHandler = ({info}) => {
+    console.log(info)
     const {
         name,
         surname,
@@ -17,7 +18,7 @@ const StudentInfoHandler = ({info}) => {
     } = info
 
     let age = ''
-    const dateOfBirth = new Date(Number(year), Number(month), Number(day))
+    const dateOfBirth = new Date(Number(year), Number(month) - 1, Number(day))
     if (day && month && year)
         age = Math.floor((new Date() - dateOfBirth) / (24 * 3600 * 365.25 * 1000))
 
