@@ -4,6 +4,7 @@ import SignUpEmailInput from './SignUpEmailInput'
 import './style/SignUpForm.css'
 
 const SignUpForm = ({getInfo}) => {
+    const [sendButtonState, setSendButtonState] = useState({email: false})
     const [studentInfo, setStudentInfo] = useState({day: 1, month: 1, year: 2022})
     const [email, setEmail] = useState('')
 
@@ -86,9 +87,6 @@ const SignUpForm = ({getInfo}) => {
         else alert('Input correct email!')
     }
 
-    // +++TODO: сохранять дату рождения в state
-    // +++TODO: очистка формы: заполнить пустыми значениями
-    // +++TODO: если email некорректный, то кнопка неактивна
     return (
         <form onSubmit={onSubmitForm}>
             <h2>Registration form</h2>
@@ -102,9 +100,9 @@ const SignUpForm = ({getInfo}) => {
             <input className={'input'} id={'fc'} placeholder={'faculty'} onChange={handler}/><br/>
             <input className={'input'} id={'gr'} placeholder={'group'} onChange={handler}/><br/>
             <input className={'input'} id={'sp'} placeholder={'spec'} onChange={handler}/><br/>
-            <SignUpEmailInput handler={handler} email={checkEmail}/>
-            <PhoneInput handler={handler}/>
-            <input type={'submit'} className={'send'} value="send"/>
+            <SignUpEmailInput handler={handler} email={checkEmail} sendButtonState={sendButtonState} setSendButtonState={setSendButtonState}/>
+            <PhoneInput handler={handler} sendButtonState={sendButtonState} setSendButtonState={setSendButtonState}/>
+            <input type={'submit'} className={'send'} value={'send'} disabled={!sendButtonState.email}/>
         </form>
     )
 }
